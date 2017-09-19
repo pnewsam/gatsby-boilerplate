@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import "bulma/bulma.sass";
 
 const IndexPage = () => (
   <div>
