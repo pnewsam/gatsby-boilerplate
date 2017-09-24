@@ -1,28 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
 import './main.scss';
 
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from '../bulma/Navbar';
+import Footer from '../bulma/Footer';
 
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="Gatsby Boilerplate"
       meta={[
         { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
+        { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Navbar />
+    <Navbar>
+      <Link to="" className="navbar-item">
+        Link
+      </Link>
+      <Link to="" className="navbar-item">
+        Link
+      </Link>
+      <Link to="" className="navbar-item">
+        Link
+      </Link>
+    </Navbar>
     {children()}
-    <Footer />
+    <Footer>&copy; Business Name 2017</Footer>
   </div>
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
 };
 
 export default TemplateWrapper;

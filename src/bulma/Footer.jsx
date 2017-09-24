@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-const Footer = () => (
+const Footer = props => (
   <footer className="footer">
     <div className="container">
-      <div className="content has-text-centered">&copy; Business Name 2017</div>
+      <div className="content">{props.children}</div>
     </div>
   </footer>
 );
