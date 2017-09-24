@@ -1,7 +1,7 @@
 import React from 'react';
 
-const NavbarBurger = () => (
-  <div className="navbar-burger">
+const NavbarBurger = props => (
+  <div className="navbar-burger" onClick={props.toggleMenu}>
     <span />
     <span />
     <span />
