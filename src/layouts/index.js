@@ -16,9 +16,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Navbar />
-    <section className="section">
-      <div className="container">{children()}</div>
-    </section>
+    {children()}
     <Footer />
   </div>
 );

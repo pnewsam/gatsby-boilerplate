@@ -8,6 +8,7 @@
     "gatsby-link": "^1.6.15",
     "gatsby-plugin-react-helmet": "^1.0.5",
     "gatsby-plugin-sass": "^1.0.12",
+    "sass-loader": "^6.0.6",
     "styled-components": "^2.1.2"
   },
   "keywords": ["gatsby"],
