@@ -1,14 +1,12 @@
-import React from "react";
+import React from 'react';
 import Link from 'gatsby-link';
 
-const Navbar = () => (
+const Footer = () => (
   <footer className="footer">
     <div className="container">
-      <div className="content has-text-centered">
-        &copy; Business Name 2017
-      </div>
+      <div className="content has-text-centered">&copy; Business Name 2017</div>
     </div>
   </footer>
-)
+);
 
-export default Navbar;
+export default Footer;
