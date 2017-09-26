@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import Hero from '../bulma/Hero';
 import Title1 from '../bulma/Title1';
 import Section from '../bulma/Section';
-import ContactForm from '../bulma/ContactForm';
+import ContactForm from '../components/ContactForm/ContactForm';
 
 const IndexPage = () => (
   <div>
