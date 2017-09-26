@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import string from 'lodash/string';
-import object from 'lodash/object';
 import TextInput from './TextInput';
 import TextArea from './TextArea';
 
@@ -10,112 +8,75 @@ class ContactForm extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.validate = this.validate.bind(this);
     this.state = {
-      values: {
-        name: '',
-        email: '',
-        message: '',
-      },
-      errors: {
-        name: [],
-        email: [],
-        message: [],
-      },
-      responses: [],
+      name: '',
+      email: '',
+      message: '',
+      response: '',
     };
   }
 
   handleChange(e) {
-    const field = e.target.getAttribute('name');
     this.setState({
-      values: Object.assign({}, this.state.values, {
-        [field]: e.target.value,
-      }),
+      [e.target.getAttribute('name')]: e.target.value,
     });
-    // this.validateEmail();
   }
 
-  // validateEmail() {
-  //   const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-  //   if (this.state.email !== '' && !re.test(this.state.email)) {
-  //     if (this.state.errors.indexOf('You must enter a valid email') === -1) {
-  //       this.setState({
-  //         errors: this.state.errors.concat(['You must enter a valid email']),
-  //       });
-  //     }
-  //   } else {
-  //     this.setState({
-  //       errors: this.state.errors.filter(
-  //         i => i !== 'You must enter a valid email',
-  //       ),
-  //     });
-  //   }
-  // }
+  validateEmail(value) {
+    const errors = [];
+    const re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    if (!re.test(value)) {
+      errors.push('Must be a valid email.');
+    }
+    if (value === '') {
+      errors.push('Cannot be blank.');
+    }
+    return errors;
+  }
 
-  validate() {
-    console.log('in validate!');
-    const errors = this.state.errors;
-    object.forIn(this.state.values, (val, prop) => {
-      if (val === '') {
-        if (
-          errors[prop].indexOf(`${string.capitalize(prop)} cannot be empty!`) <
-          0
-        ) {
-          this.setState({
-            errors: {
-              ...errors,
-              [prop]: errors[prop].concat(
-                `${string.capitalize(prop)} cannot be empty!`,
-              ),
-            },
-          });
-        }
-      } else {
-        this.setState({
-          errors: {
-            ...errors,
-            [prop]: errors[prop].filter(
-              e => e !== `${string.capitalize(prop)} cannot be empty!`,
-            ),
-          },
-        });
-      }
-    });
+  validateText(value) {
+    const errors = [];
+    if (value === '') {
+      errors.push('Cannot be blank.');
+    }
+    return errors;
+  }
+
+  validateForm() {
+    const errors = []
+      .concat(this.validateText(this.state.name))
+      .concat(this.validateEmail(this.state.email))
+      .concat(this.validateText(this.state.message));
+    return errors.length === 0;
+  }
+
+  timeoutResponse() {
+    setTimeout(() => {
+      this.setState({ response: '' });
+    }, 10000);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.validate();
-    // if (this.validatePresence()) {
-    //   const data = new FormData(e.target);
-    //   console.log('in conditional!');
-    //   axios
-    //     .post(
-    //       '',
-    //       data
-    //     )
-    //     .then(r => {
-    //       console.log(r);
-    //       this.setState({
-    //         responses: this.state.responses.concat(
-    //           'Your message was successfully sent'
-    //         )
-    //       });
-    //       setTimeout(() => {
-    //         this.setState({ responses: [] });
-    //       }, 10000);
-    //     })
-    //     .catch(e => {
-    //       console.log(e);
-    //       this.setState({
-    //         errors: [e]
-    //       });
-    //       setTimeout(() => {
-    //         this.setState({ errors: [] });
-    //       }, 10000);
-    //     });
-    // }
+    console.log('submit!');
+    if (this.validateForm()) {
+      console.log('valid!');
+      const data = new FormData(e.target);
+      axios
+        .post('', data)
+        .then((r) => {
+          this.setState({
+            message: 'Your message was successfully sent.',
+          });
+          this.timeoutResponse();
+        })
+        .catch((e) => {
+          this.setState({
+            response: 'Something went wrong. Please try again.',
+          });
+          this.timeoutResponse();
+        });
+    }
   }
 
   render() {
@@ -125,21 +86,21 @@ class ContactForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <TextInput
             name="name"
-            value={this.state.values.name}
+            value={this.state.name}
             handleChange={this.handleChange}
-            errors={this.state.errors.name}
+            errors={this.validateText(this.state.name)}
           />
           <TextInput
             name="email"
-            value={this.state.values.email}
+            value={this.state.email}
             handleChange={this.handleChange}
-            errors={this.state.errors.email}
+            errors={this.validateEmail(this.state.email)}
           />
           <TextArea
             name="message"
-            value={this.state.values.message}
+            value={this.state.message}
             handleChange={this.handleChange}
-            errors={this.state.errors.message}
+            errors={this.validateText(this.state.message)}
           />
           <button className="button is-primary" type="submit">
             Submit

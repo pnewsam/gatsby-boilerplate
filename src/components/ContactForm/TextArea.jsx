@@ -3,6 +3,10 @@ import string from 'lodash/string';
 
 const TextArea = (props) => {
   const cap = string.capitalize(props.name);
+  let classes = 'textarea';
+  if (props.errors.length > 0) {
+    classes += ' is-danger';
+  }
   return (
     <div className="field">
       <label className="label" htmlFor={props.name}>
@@ -10,7 +14,7 @@ const TextArea = (props) => {
       </label>
       <div className="control">
         <textarea
-          className="textarea"
+          className={classes}
           name={props.name}
           placeholder={cap}
           value={props.value}

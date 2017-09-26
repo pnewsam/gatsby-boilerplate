@@ -3,6 +3,10 @@ import string from 'lodash/string';
 
 const TextInput = (props) => {
   const cap = string.capitalize(props.name);
+  let classes = 'input';
+  if (props.errors.length > 0) {
+    classes += ' is-danger';
+  }
   return (
     <div className="field">
       <label className="label" htmlFor={props.name}>
@@ -11,7 +15,7 @@ const TextInput = (props) => {
       <div className="control">
         <input
           type="text"
-          className="input"
+          className={classes}
           name={props.name}
           placeholder={cap}
           value={props.value}
