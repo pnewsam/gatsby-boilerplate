@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Response = (props) => {
+const Response = props => {
   if (props.response === 'success') {
     return (
       <p className="notification is-success">

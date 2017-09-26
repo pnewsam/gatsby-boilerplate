@@ -13,13 +13,13 @@ class ContactForm extends Component {
       name: '',
       email: '',
       message: '',
-      response: '',
+      response: ''
     };
   }
 
   handleChange(e) {
     this.setState({
-      [e.target.getAttribute('name')]: e.target.value,
+      [e.target.getAttribute('name')]: e.target.value
     });
   }
 
@@ -65,15 +65,15 @@ class ContactForm extends Component {
       const data = new FormData(e.target);
       axios
         .post('', data)
-        .then((r) => {
+        .then(r => {
           this.setState({
-            response: 'success',
+            response: 'success'
           });
           this.timeoutResponse();
         })
-        .catch((e) => {
+        .catch(e => {
           this.setState({
-            response: 'error',
+            response: 'error'
           });
           this.timeoutResponse();
         });

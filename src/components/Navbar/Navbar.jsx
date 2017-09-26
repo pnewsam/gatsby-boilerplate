@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Brand from './Brand';
 import Menu from './Menu';
+import Scroller from './Scroller';
 
 class Navbar extends Component {
   constructor(props) {
@@ -17,10 +18,12 @@ class Navbar extends Component {
   }
   render() {
     return (
-      <nav className="navbar">
-        <Brand toggleMenu={this.toggleMenu}>Brand</Brand>
-        <Menu isActive={this.state.isActive}>{this.props.children}</Menu>
-      </nav>
+      <Scroller>
+        <nav className="navbar">
+          <Brand toggleMenu={this.toggleMenu}>Brand</Brand>
+          <Menu isActive={this.state.isActive}>{this.props.children}</Menu>
+        </nav>
+      </Scroller>
     );
   }
 }
