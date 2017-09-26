@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import TextInput from './TextInput';
 import TextArea from './TextArea';
+import Response from './Response';
 
 class ContactForm extends Component {
   constructor(props) {
@@ -66,13 +67,13 @@ class ContactForm extends Component {
         .post('', data)
         .then((r) => {
           this.setState({
-            message: 'Your message was successfully sent.',
+            response: 'success',
           });
           this.timeoutResponse();
         })
         .catch((e) => {
           this.setState({
-            response: 'Something went wrong. Please try again.',
+            response: 'error',
           });
           this.timeoutResponse();
         });
@@ -106,6 +107,8 @@ class ContactForm extends Component {
             Submit
           </button>
         </form>
+        <br />
+        <Response response={this.state.response} />
       </div>
     );
   }

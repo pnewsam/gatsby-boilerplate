@@ -6,6 +6,8 @@ A [Gatsby](https://www.gatsbyjs.org/) boilerplate set up with:
 * [Bulma](bulma.io)
 * [Styled Components](https://www.styled-components.com/)
 * SVG icons from [Simple Icons](https://simpleicons.org/)
-* A bunch of reusable components utilizing Bulma
+* A bunch of reusable components utilizing Bulma including:
+  * Contact Form with basic validations
+  * Responsive Navbar
 
 Great for getting up and started with a static website.
