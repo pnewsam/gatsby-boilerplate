@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import Hero from '../bulma/Hero';
-import Title1 from '../bulma/Title1';
-import Section from '../bulma/Section';
+import Hero from '../components/Hero';
+import Title1 from '../components/Title1';
+import Section from '../components/Section';
 import ContactForm from '../components/ContactForm/ContactForm';
 
 const IndexPage = () => (
