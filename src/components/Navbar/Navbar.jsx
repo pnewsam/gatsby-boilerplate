@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NavbarBrand from './NavbarBrand';
-import NavbarMenu from './NavbarMenu';
+import Brand from './Brand';
+import Menu from './Menu';
 
 class Navbar extends Component {
   constructor(props) {
@@ -18,10 +18,8 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar">
-        <NavbarBrand toggleMenu={this.toggleMenu}>Brand</NavbarBrand>
-        <NavbarMenu isActive={this.state.isActive}>
-          {this.props.children}
-        </NavbarMenu>
+        <Brand toggleMenu={this.toggleMenu}>Brand</Brand>
+        <Menu isActive={this.state.isActive}>{this.props.children}</Menu>
       </nav>
     );
   }

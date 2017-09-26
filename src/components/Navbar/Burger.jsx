@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavbarBurger = props => (
+const Burger = props => (
   <div className="navbar-burger" onClick={props.toggleMenu}>
     <span />
     <span />
@@ -8,4 +8,4 @@ const NavbarBurger = props => (
   </div>
 );
 
-export default NavbarBurger;
+export default Burger;
