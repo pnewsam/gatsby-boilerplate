@@ -2,7 +2,7 @@ import React from 'react';
 
 const Phone = props => (
   <svg
-    fill="#000000"
+    fill={props.color || '#000'}
     height={props.height}
     viewBox="0 0 24 24"
     width={props.width}
