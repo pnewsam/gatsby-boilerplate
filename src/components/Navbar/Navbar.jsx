@@ -25,7 +25,7 @@ class Navbar extends Component {
           <Brand toggleMenu={this.toggleMenu}>Brand</Brand>
           <Menu isActive={this.state.isActive}>
             <Dropdown to="/" name="Dropdown">
-              <Link to="/" className="navbar-item">
+              <NavLink to="/" className="navbar-item">
                 Link
               </Link>
               <Link to="/" className="navbar-item">
