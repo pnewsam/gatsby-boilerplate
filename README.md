@@ -11,3 +11,16 @@ A [Gatsby](https://www.gatsbyjs.org/) boilerplate set up with:
   * Navbar (scroll-in, with dropdowns & burger)
 
 Great for getting up and started with a static website.
+
+## New Project To Do List
+- [ ] Update `robots.txt`
+- [ ] Add Google Analytics Tracking ID
+- [ ] Edit title, meta description, meta keywords in `layouts/index.js`
+- [ ] Edit siteMetadata in `gatsby-config.js`
+- [ ] Delete unused components
+
+
+## Dev To Do List
+- [ ] Fix navbar burger
+- [ ] Add robots.txt
+- [ ] Add google-analytics plugin
