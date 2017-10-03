@@ -7,7 +7,7 @@ const Brand = props => (
     <div className="navbar-item">
       <Link to="/">{props.children}</Link>
     </div>
-    <Burger toggleMenu={props.toggleMenu} />
+    <Burger toggleMenu={props.toggleMenu} isActive={props.isActive} />
   </div>
 );
 

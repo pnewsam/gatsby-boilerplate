@@ -4,6 +4,7 @@ import Brand from './Brand';
 import Menu from './Menu';
 import Scroller from './Scroller';
 import Dropdown from './Dropdown';
+import NavLink from './NavLink';
 
 class Navbar extends Component {
   constructor(props) {
@@ -22,12 +23,14 @@ class Navbar extends Component {
     return (
       <Scroller>
         <nav className="navbar">
-          <Brand toggleMenu={this.toggleMenu}>Brand</Brand>
+          <Brand toggleMenu={this.toggleMenu} isActive={this.state.isActive}>
+            Brand
+          </Brand>
           <Menu isActive={this.state.isActive}>
             <Dropdown to="/" name="Dropdown">
               <NavLink to="/" className="navbar-item">
                 Link
-              </Link>
+              </NavLink>
               <Link to="/" className="navbar-item">
                 Link
               </Link>
