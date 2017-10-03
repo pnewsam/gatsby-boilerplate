@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
 import Brand from './Brand';
 import Menu from './Menu';
 import Scroller from './Scroller';
@@ -9,41 +8,40 @@ import NavLink from './NavLink';
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.toggleMenu = this.toggleMenu.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       isActive: false,
     };
   }
-  toggleMenu() {
-    console.log('toggleMenu!');
+  handleClick() {
+    console.log('handleClick!');
     this.setState({ isActive: !this.state.isActive });
-    console.log(this.state);
   }
   render() {
     return (
       <Scroller>
         <nav className="navbar">
-          <Brand toggleMenu={this.toggleMenu} isActive={this.state.isActive}>
+          <Brand handleClick={this.handleClick} isActive={this.state.isActive}>
             Brand
           </Brand>
           <Menu isActive={this.state.isActive}>
-            <Dropdown to="/" name="Dropdown">
-              <NavLink to="/" className="navbar-item">
+            <Dropdown to="/" name="Dropdown" handleClick={this.handleClick}>
+              <NavLink to="/" handleClick={this.handleClick}>
                 Link
               </NavLink>
-              <Link to="/" className="navbar-item">
+              <NavLink to="/" handleClick={this.handleClick}>
                 Link
-              </Link>
-              <Link to="/" className="navbar-item">
+              </NavLink>
+              <NavLink to="/" handleClick={this.handleClick}>
                 Link
-              </Link>
+              </NavLink>
             </Dropdown>
-            <Link to="/" className="navbar-item">
+            <NavLink to="/" handleClick={this.handleClick}>
               Link
-            </Link>
-            <Link to="/" className="navbar-item">
+            </NavLink>
+            <NavLink to="/" handleClick={this.handleClick}>
               Link
-            </Link>
+            </NavLink>
           </Menu>
         </nav>
       </Scroller>

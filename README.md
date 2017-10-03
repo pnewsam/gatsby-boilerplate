@@ -21,6 +21,6 @@ Great for getting up and started with a static website.
 
 
 ## Dev To Do List
-- [ ] Fix navbar burger
+- [x] Fix navbar burger
 - [ ] Add `robots.txt`
 - [ ] Add google-analytics plugin

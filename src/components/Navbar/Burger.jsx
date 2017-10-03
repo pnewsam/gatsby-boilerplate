@@ -6,7 +6,7 @@ const Burger = (props) => {
     classes += ' is-active';
   }
   return (
-    <div className={classes} onClick={props.toggleMenu}>
+    <div className={classes} onClick={props.handleClick}>
       <span />
       <span />
       <span />

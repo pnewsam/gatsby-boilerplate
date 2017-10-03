@@ -1,13 +1,13 @@
 import React from 'react';
 import Burger from './Burger';
-import Link from 'gatsby-link';
+import NavLink from './NavLink';
 
 const Brand = props => (
   <div className="navbar-brand">
     <div className="navbar-item">
-      <Link to="/">{props.children}</Link>
+      <NavLink to="/">{props.children}</NavLink>
     </div>
-    <Burger toggleMenu={props.toggleMenu} isActive={props.isActive} />
+    <Burger handleClick={props.handleClick} isActive={props.isActive} />
   </div>
 );
 

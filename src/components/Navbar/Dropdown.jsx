@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
+import NavLink from './NavLink';
 
 class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.toggleActive = this.toggleActive.bind(this);
     this.state = {
-      classes: 'navbar-item has-dropdown'
+      classes: 'navbar-item has-dropdown',
     };
   }
 
   toggleActive(e) {
     if (!this.state.classes.includes('is-active')) {
       this.setState({
-        classes: 'navbar-item has-dropdown is-active'
+        classes: 'navbar-item has-dropdown is-active',
       });
     } else {
       this.setState({
-        classes: 'navbar-item has-dropdown'
+        classes: 'navbar-item has-dropdown',
       });
     }
   }
@@ -29,9 +30,13 @@ class Dropdown extends Component {
         onMouseOver={this.toggleActive}
         onMouseOut={this.toggleActive}
       >
-        <Link to={this.props.to} className="navbar-link">
+        <NavLink
+          to={this.props.to}
+          className="navbar-link"
+          handleClick={this.props.handleClick}
+        >
           {this.props.name}
-        </Link>
+        </NavLink>
         <div className="navbar-dropdown">{this.props.children}</div>
       </div>
     );
