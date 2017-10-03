@@ -19,8 +19,7 @@ Great for getting up and started with a static website.
 - [ ] Edit siteMetadata in `gatsby-config.js`
 - [ ] Delete unused components
 
-
 ## Dev To Do List
 - [x] Fix navbar burger
 - [ ] Add `robots.txt`
-- [ ] Add google-analytics plugin
+- [x] Add google-analytics plugin
