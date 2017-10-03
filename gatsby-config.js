@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
+    siteUrl: 'https://www.example.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -11,6 +12,9 @@ module.exports = {
       options: {
         trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
       },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
     },
   ],
 };
