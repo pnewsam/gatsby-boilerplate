@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import './main.scss';
-import favicon from '../assets/favicon.ico';
+// import favicon from '../assets/favicon.ico';
 
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer';
@@ -18,9 +18,11 @@ const TemplateWrapper = ({ children }) => (
       ]}
       link={[
         {
+          /* {
           rel: 'icon',
           href: favicon,
           type: 'image/x-icon',
+        }, */
         },
       ]}
     />

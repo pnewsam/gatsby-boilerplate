@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Brand from './Brand';
 import Menu from './Menu';
-import Scroller from './Scroller';
 import Dropdown from './Dropdown';
 import NavLink from './NavLink';
 
@@ -19,32 +18,30 @@ class Navbar extends Component {
   }
   render() {
     return (
-      <Scroller>
-        <nav className="navbar">
-          <Brand handleClick={this.handleClick} isActive={this.state.isActive}>
-            Brand
-          </Brand>
-          <Menu isActive={this.state.isActive}>
-            <Dropdown to="/" name="Dropdown" handleClick={this.handleClick}>
-              <NavLink to="/" handleClick={this.handleClick}>
-                Link
-              </NavLink>
-              <NavLink to="/" handleClick={this.handleClick}>
-                Link
-              </NavLink>
-              <NavLink to="/" handleClick={this.handleClick}>
-                Link
-              </NavLink>
-            </Dropdown>
+      <nav className="navbar">
+        <Brand handleClick={this.handleClick} isActive={this.state.isActive}>
+          Brand
+        </Brand>
+        <Menu isActive={this.state.isActive}>
+          <Dropdown to="/" name="Dropdown" handleClick={this.handleClick}>
             <NavLink to="/" handleClick={this.handleClick}>
               Link
             </NavLink>
             <NavLink to="/" handleClick={this.handleClick}>
               Link
             </NavLink>
-          </Menu>
-        </nav>
-      </Scroller>
+            <NavLink to="/" handleClick={this.handleClick}>
+              Link
+            </NavLink>
+          </Dropdown>
+          <NavLink to="/" handleClick={this.handleClick}>
+            Link
+          </NavLink>
+          <NavLink to="/" handleClick={this.handleClick}>
+            Link
+          </NavLink>
+        </Menu>
+      </nav>
     );
   }
 }

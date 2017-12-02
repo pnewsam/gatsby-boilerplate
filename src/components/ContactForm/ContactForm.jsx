@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import TextInput from './TextInput';
 import TextArea from './TextArea';
 import Response from './Response';
@@ -13,13 +13,13 @@ class ContactForm extends Component {
       name: '',
       email: '',
       message: '',
-      response: ''
+      response: '',
     };
   }
 
   handleChange(e) {
     this.setState({
-      [e.target.getAttribute('name')]: e.target.value
+      [e.target.getAttribute('name')]: e.target.value,
     });
   }
 
@@ -63,20 +63,20 @@ class ContactForm extends Component {
     if (this.validateForm()) {
       console.log('valid!');
       const data = new FormData(e.target);
-      axios
-        .post('', data)
-        .then(r => {
-          this.setState({
-            response: 'success'
-          });
-          this.timeoutResponse();
-        })
-        .catch(e => {
-          this.setState({
-            response: 'error'
-          });
-          this.timeoutResponse();
-        });
+      // axios
+      //   .post('', data)
+      //   .then((r) => {
+      //     this.setState({
+      //       response: 'success',
+      //     });
+      //     this.timeoutResponse();
+      //   })
+      //   .catch((e) => {
+      //     this.setState({
+      //       response: 'error',
+      //     });
+      //     this.timeoutResponse();
+      //   });
     }
   }
 

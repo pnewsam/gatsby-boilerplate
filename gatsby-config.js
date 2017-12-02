@@ -8,12 +8,6 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-sitemap',
     },
   ],
